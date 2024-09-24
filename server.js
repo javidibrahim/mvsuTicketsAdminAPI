@@ -1,0 +1,25 @@
+const express = require('express');
+const cors = require('cors');
+const corsOptions = require('../server/config/corsOptions');  // Import the CORS options
+const bodyParser = require('body-parser');
+const adminRoutes = require('./routes');
+const venueRoutes = require('./venue/venueRoutes');
+const eventRoutes = require('./event/eventRoutes');
+const sportRoutes = require('./sport/sportRoutes');
+const upload = require('../server/config/multerConfig');
+const cookieParser = require("cookie-parser");
+// Create the admin server
+const server = express();
+
+server.use(cors(corsOptions));
+server.use(cookieParser());
+server.use(bodyParser.json());
+server.use('/', adminRoutes);
+server.use('/admin/venues', venueRoutes);
+server.use('/admin/events', eventRoutes);
+server.use('/admin/sports', sportRoutes);
+
+const PORT = process.env.ADMIN_SERVER_PORT || 8802;
+server.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server is running on port ${PORT}`);
+});
