@@ -3,9 +3,6 @@ const cors = require('cors');
 const corsOptions = require('./corsOptions');
 const bodyParser = require('body-parser');
 const adminRoutes = require('./routes');
-const venueRoutes = require('../server/venue/venueRoutes');
-const eventRoutes = require('../server/event/eventRoutes');
-const sportRoutes = require('../server/sport/sportRoutes');
 const cookieParser = require("cookie-parser");
 // Create the admin server
 const server = express();
