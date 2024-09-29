@@ -1,12 +1,11 @@
 const express = require('express');
 const cors = require('cors');
-const corsOptions = require('../server/config/corsOptions');  // Import the CORS options
+const corsOptions = require('./corsOptions');
 const bodyParser = require('body-parser');
 const adminRoutes = require('./routes');
-const venueRoutes = require('./venue/venueRoutes');
-const eventRoutes = require('./event/eventRoutes');
-const sportRoutes = require('./sport/sportRoutes');
-const upload = require('../server/config/multerConfig');
+const venueRoutes = require('../server/venue/venueRoutes');
+const eventRoutes = require('../server/event/eventRoutes');
+const sportRoutes = require('../server/sport/sportRoutes');
 const cookieParser = require("cookie-parser");
 // Create the admin server
 const server = express();
