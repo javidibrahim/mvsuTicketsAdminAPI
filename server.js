@@ -8,6 +8,7 @@ const cookieParser = require("cookie-parser");
 const server = express();
 
 server.use(cors(corsOptions));
+server.options('*', cors(corsOptions));
 server.use(cookieParser());
 server.use(bodyParser.json());
 server.use('/', adminRoutes);
