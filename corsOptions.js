@@ -6,6 +6,10 @@ const corsWhitelist = [
     'http://10.106.4.7:5173',
     'http://10.251.7.20:5173',
     'http://0.0.0.0:5173',
+    process.env.BACKEND_URL,
+    process.env.BACKEND_AUTH_URL,
+    process.env.BACKEND_ADMIN_URL,
+    process.env.FRONTEND_URL,
 ];
 
 // Define the CORS options
