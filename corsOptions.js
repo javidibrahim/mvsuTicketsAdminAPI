@@ -1,4 +1,5 @@
 const cors = require('cors');
+require('dotenv').config();
 
 // Define the CORS whitelist with exact URLs/IPs
 const corsWhitelist = [
@@ -18,11 +19,9 @@ const corsOptions = {
         // Log the origin for debugging purposes
         console.log(`CORS origin: ${origin}`);
 
-        // Check if the origin is in the whitelist or if there's no origin (e.g., Postman or curl requests)
         if (corsWhitelist.indexOf(origin) !== -1 || !origin) {
             callback(null, true);  // Allow the request
         } else {
-            console.log(`Blocked by CORS: ${origin}`);  // Log the blocked origin
             callback(new Error(`Not allowed by CORS: ${origin}`));  // Block the request if not whitelisted
         }
     },
